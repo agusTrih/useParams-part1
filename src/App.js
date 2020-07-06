@@ -11,11 +11,9 @@ function App() {
             <Route path="/github">
                 <Github />
             </Route>
-            <Switch>
-                <Route exact path="/github-detail/:username">
-                    <GithubDetail />
-                </Route>
-            </Switch>
+            <Route exact path="/github-detail/:username">
+                <GithubDetail />
+            </Route>
         </Router>
     );
 }
