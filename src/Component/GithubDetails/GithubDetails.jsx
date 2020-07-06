@@ -7,8 +7,7 @@ const Flex = Styled.div`
 display: flex;
 justify-content: space-around;
 flex-direction: row;
-
-
+`;
 
 function GithubDetails() {
     const { username } = useParams();
