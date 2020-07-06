@@ -7,18 +7,25 @@ const Flex = Styled.div`
 display: flex;
 justify-content: space-around;
 flex-direction: row;
+
+border-top: 1px dotted black;
+box-sizing: border-box;
 `;
 const Image = Styled.img`
 width: 200px;
 border-radius: 50%;
 `;
-const Paragraph = Styled.p`
+const Paragraph = Styled.h2`
 font-size: 24px;
 font-weight: bold;
 `;
 const FlexColumn = Styled.div`
 display: flex;
 flex-direction: column;
+`;
+const P = Styled.p`
+font-size: 24px;
+
 `;
 
 function GithubDetails() {
@@ -50,17 +57,17 @@ function GithubDetails() {
                     <FlexColumn>
                         {" "}
                         <Paragraph>{data.followers}</Paragraph>
-                        <p>Followers: </p>
+                        <P>Followers</P>
                     </FlexColumn>
                     <FlexColumn>
                         {" "}
                         <Paragraph>{data.following}</Paragraph>
-                        <p>Following: </p>
+                        <P>Following</P>
                     </FlexColumn>
                     <FlexColumn>
                         {" "}
                         <Paragraph>{data.public_repos}</Paragraph>
-                        <p>Repository: </p>
+                        <P>Repository</P>
                     </FlexColumn>
                 </Flex>
             </div>

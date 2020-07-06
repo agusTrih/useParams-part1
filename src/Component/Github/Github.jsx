@@ -13,34 +13,19 @@ margin: 50px 0;
 const Button = Styled.button`
 color: black;
 margin-left: 10px;
-font-size:16px; 
-border-color:#cccccc; 
-border-style:solid; 
-border-width:0px; 
-box-shadow: -5px 4px 5px 0px rgba(42,42,42,.60); 
-padding:7px; 
-border-radius:22px; 
-font-family:monospace; 
-text-shadow:0px 0px 0px rgba(42,42,42,.75); 
-&:focus{
-    outline: none;
+padding: 10px;
+font-size: 16px;
+cursor: pointer;
+a {
+    text-decoration: none;
+    color: black;
 }
 `;
 
 const InputText = Styled.input`
 width: 300px;
-font-size:16px; 
-border-color:#cccccc; 
-border-style:solid; 
-border-width:0px; 
-box-shadow: -5px 4px 5px 0px rgba(42,42,42,.60); 
-padding:7px; 
-border-radius:22px; 
-font-family:monospace; 
-text-shadow:0px 0px 0px rgba(42,42,42,.75); 
-&:focus{
-    outline: none;
-}
+padding: 10px;
+font-size: 16px;
 `;
 
 function Github() {
