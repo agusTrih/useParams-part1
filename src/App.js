@@ -8,9 +8,8 @@ import GithubDetail from "./Component/GithubDetails/GithubDetails";
 function App() {
     return (
         <Router>
-            <Route path="/github">
-                <Github />
-            </Route>
+            <Github />
+
             <Route exact path="/github-detail/:username">
                 <GithubDetail />
             </Route>
