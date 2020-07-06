@@ -33,10 +33,14 @@ function Github() {
         event.preventDefault();
     };
 
+    // tes handle
+    const handleEnter = () => {};
+
     return (
         <Form onSubmit={handleSubmit}>
             <InputText
                 onChange={handleChange}
+                onKeyUp={handleEnter}
                 value={input}
                 placeholder="Type username and press button"
             />
