@@ -8,6 +8,18 @@ display: flex;
 justify-content: space-around;
 flex-direction: row;
 `;
+const Image = Styled.img`
+width: 200px;
+border-radius: 50%;
+`;
+const Paragraph = Styled.p`
+font-size: 24px;
+font-weight: bold;
+`;
+const FlexColumn = Styled.div`
+display: flex;
+flex-direction: column;
+`;
 
 function GithubDetails() {
     const { username } = useParams();
@@ -31,13 +43,25 @@ function GithubDetails() {
     return (
         <div>
             <div style={{ textAlign: "center" }}>
-                <img src={data.avatar_url} alt="avatar" />
-                <p>{data.login}</p>
-                <p>{data.bio}</p>
+                <Image src={data.avatar_url} alt="avatar" />
+                <Paragraph>{data.login}</Paragraph>
+                <Paragraph>{data.bio}</Paragraph>
                 <Flex>
-                    <p>Followers: {data.followers}</p>
-                    <p>Following: {data.following}</p>
-                    <p>Repository: {data.public_repos}</p>
+                    <FlexColumn>
+                        {" "}
+                        <Paragraph>{data.followers}</Paragraph>
+                        <p>Followers: </p>
+                    </FlexColumn>
+                    <FlexColumn>
+                        {" "}
+                        <Paragraph>{data.following}</Paragraph>
+                        <p>Following: </p>
+                    </FlexColumn>
+                    <FlexColumn>
+                        {" "}
+                        <Paragraph>{data.public_repos}</Paragraph>
+                        <p>Repository: </p>
+                    </FlexColumn>
                 </Flex>
             </div>
         </div>

@@ -7,18 +7,40 @@ const Form = Styled.form`
 display: flex;
 justify-content: center;
 align-items: center;
-margin: 30px 0;
+margin: 50px 0;
 `;
 
 const Button = Styled.button`
 color: black;
-a{
-    text-underline: none;
+margin-left: 10px;
+font-size:16px; 
+border-color:#cccccc; 
+border-style:solid; 
+border-width:0px; 
+box-shadow: -5px 4px 5px 0px rgba(42,42,42,.60); 
+padding:7px; 
+border-radius:22px; 
+font-family:monospace; 
+text-shadow:0px 0px 0px rgba(42,42,42,.75); 
+&:focus{
+    outline: none;
 }
 `;
 
 const InputText = Styled.input`
-width: 200px;
+width: 300px;
+font-size:16px; 
+border-color:#cccccc; 
+border-style:solid; 
+border-width:0px; 
+box-shadow: -5px 4px 5px 0px rgba(42,42,42,.60); 
+padding:7px; 
+border-radius:22px; 
+font-family:monospace; 
+text-shadow:0px 0px 0px rgba(42,42,42,.75); 
+&:focus{
+    outline: none;
+}
 `;
 
 function Github() {
@@ -33,14 +55,10 @@ function Github() {
         event.preventDefault();
     };
 
-    // tes handle
-    const handleEnter = () => {};
-
     return (
         <Form onSubmit={handleSubmit}>
             <InputText
                 onChange={handleChange}
-                onKeyUp={handleEnter}
                 value={input}
                 placeholder="Type username and press button"
             />
