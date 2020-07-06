@@ -8,10 +8,7 @@ display: flex;
 justify-content: space-around;
 flex-direction: row;
 
-`;
-const FlexChild = Styled.p`
 
-`;
 
 function GithubDetails() {
     const { username } = useParams();
@@ -37,6 +34,7 @@ function GithubDetails() {
             <div style={{ textAlign: "center" }}>
                 <img src={data.avatar_url} alt="avatar" />
                 <p>{data.login}</p>
+                <p>{data.bio}</p>
                 <Flex>
                     <p>Followers: {data.followers}</p>
                     <p>Following: {data.following}</p>
