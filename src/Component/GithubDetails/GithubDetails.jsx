@@ -28,6 +28,10 @@ font-size: 24px;
 
 `;
 
+const Div = Styled.div`
+font-family: 'Fondamento', cursive;
+`;
+
 function GithubDetails() {
     const { username } = useParams();
 
@@ -49,7 +53,7 @@ function GithubDetails() {
 
     return (
         <div>
-            <div style={{ textAlign: "center" }}>
+            <Div style={{ textAlign: "center" }}>
                 <Image src={data.avatar_url} alt="avatar" />
                 <Paragraph>{data.login}</Paragraph>
                 <Paragraph>{data.bio}</Paragraph>
@@ -70,7 +74,7 @@ function GithubDetails() {
                         <P>Repository</P>
                     </FlexColumn>
                 </Flex>
-            </div>
+            </Div>
         </div>
     );
 }

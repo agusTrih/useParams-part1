@@ -15,7 +15,6 @@ color: black;
 margin-left: 10px;
 padding: 10px;
 font-size: 16px;
-cursor: pointer;
 a {
     text-decoration: none;
     color: black;
