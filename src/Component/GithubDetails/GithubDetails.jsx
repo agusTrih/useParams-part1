@@ -1,5 +1,17 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
+import Styled from "styled-components";
+
+// Style
+const Flex = Styled.div`
+display: flex;
+justify-content: space-around;
+flex-direction: row;
+
+`;
+const FlexChild = Styled.p`
+
+`;
 
 function GithubDetails() {
     const { username } = useParams();
@@ -23,11 +35,13 @@ function GithubDetails() {
     return (
         <div>
             <div style={{ textAlign: "center" }}>
-                <p>{data.login}</p>
-                <p>{data.company}</p>
                 <img src={data.avatar_url} alt="avatar" />
-                <p>Followers: {data.followers}</p>
-                <p>Following: {data.following}</p>
+                <p>{data.login}</p>
+                <Flex>
+                    <p>Followers: {data.followers}</p>
+                    <p>Following: {data.following}</p>
+                    <p>Repository: {data.public_repos}</p>
+                </Flex>
             </div>
         </div>
     );

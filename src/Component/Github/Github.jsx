@@ -7,6 +7,7 @@ const Form = Styled.form`
 display: flex;
 justify-content: center;
 align-items: center;
+margin: 30px 0;
 `;
 
 const Button = Styled.button`
@@ -14,6 +15,10 @@ color: black;
 a{
     text-underline: none;
 }
+`;
+
+const InputText = Styled.input`
+width: 200px;
 `;
 
 function Github() {
@@ -30,7 +35,11 @@ function Github() {
 
     return (
         <Form onSubmit={handleSubmit}>
-            <input onChange={handleChange} value={input} />
+            <InputText
+                onChange={handleChange}
+                value={input}
+                placeholder="Type username and press button"
+            />
             <Button>
                 {" "}
                 <Link to={`/github-detail/${input}`}>Click Me</Link>
