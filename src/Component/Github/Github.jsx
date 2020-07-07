@@ -8,7 +8,7 @@
 // justify-content: center;
 // align-items: center;
 // margin: 50px 0;
-// `;
+// `
 
 // const Button = Styled.button`
 // color: black;
