@@ -1,8 +1,14 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState } from "react";
+
 import Styled from "styled-components";
 
 // Style
+const Mid = Styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+`;
 const Flex = Styled.div`
 display: flex;
 justify-content: space-around;
@@ -23,59 +29,90 @@ const FlexColumn = Styled.div`
 display: flex;
 flex-direction: column;
 `;
-const P = Styled.p`
-font-size: 24px;
+const FlexColumnMid = Styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 
 `;
 
 const Div = Styled.div`
 font-family: 'Fondamento', cursive;
 `;
+const Form = Styled.form`
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 50px 0;
+`;
+const InputText = Styled.input`
+width: 300px;
+padding: 10px;
+font-size: 16px;
+`;
 
 function GithubDetails() {
-    const { username } = useParams();
-
+    const [name, setName] = useState("");
     const [data, setData] = useState({});
 
-    // Async await
-    const fetchDetail = useCallback(async () => {
-        const url = await `https://api.github.com/users/${username}`;
+    function handleChange(event) {
+        setName(event.target.value);
+    }
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        const url = `https://api.github.com/users/${name}`;
         const response = await fetch(url);
         const result = await response.json();
         setData(result);
-    }, [username]);
-
-    useEffect(() => {
-        fetchDetail();
-    }, [fetchDetail]);
-
-    // Function
+        console.log(result);
+    }
 
     return (
-        <div>
-            <Div style={{ textAlign: "center" }}>
-                <Image src={data.avatar_url} alt="avatar" />
-                <Paragraph>{data.login}</Paragraph>
-                <Paragraph>{data.bio}</Paragraph>
-                <Flex>
-                    <FlexColumn>
-                        {" "}
-                        <Paragraph>{data.followers}</Paragraph>
-                        <P>Followers</P>
-                    </FlexColumn>
-                    <FlexColumn>
-                        {" "}
-                        <Paragraph>{data.following}</Paragraph>
-                        <P>Following</P>
-                    </FlexColumn>
-                    <FlexColumn>
-                        {" "}
-                        <Paragraph>{data.public_repos}</Paragraph>
-                        <P>Repository</P>
-                    </FlexColumn>
-                </Flex>
-            </Div>
-        </div>
+        <Mid>
+            <Form onSubmit={handleSubmit}>
+                <Div>
+                    <InputText
+                        type="text"
+                        name="name"
+                        id="username"
+                        value={name}
+                        placeholder="type username github and press enter..."
+                        onChange={handleChange}
+                    ></InputText>
+                </Div>
+            </Form>
+            {name === "" ? (
+                <div></div>
+            ) : (
+                <div>
+                    <FlexColumnMid>
+                        <Image src={data.avatar_url} alt="avatar" />
+
+                        <Paragraph>{data.name}</Paragraph>
+
+                        <Paragraph>{data.bio}</Paragraph>
+                    </FlexColumnMid>
+                    <Flex>
+                        <FlexColumn>
+                            <Paragraph>Followers</Paragraph>
+                            <Paragraph>{data.followers}</Paragraph>
+                        </FlexColumn>
+
+                        <FlexColumn>
+                            <Paragraph>Repository</Paragraph>
+                            <Paragraph>{data.public_repos}</Paragraph>
+                        </FlexColumn>
+
+                        <FlexColumn>
+                            <Paragraph>Following</Paragraph>
+                            <Paragraph>{data.following}</Paragraph>
+                        </FlexColumn>
+                    </Flex>
+                </div>
+            )}
+        </Mid>
     );
 }
 

@@ -1,18 +1,16 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import "./App.css";
-import Github from "./Component/Github/Github";
+// import Github from "./Component/Github/Github";
 import GithubDetail from "./Component/GithubDetails/GithubDetails";
 
 function App() {
     return (
         <Router>
-            <Github />
+            {/* <Github /> */}
 
-            <Route exact path="/github-detail/:username">
-                <GithubDetail />
-            </Route>
+            <GithubDetail />
         </Router>
     );
 }
